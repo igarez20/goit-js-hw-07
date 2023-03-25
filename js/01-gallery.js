@@ -3,10 +3,10 @@ import { galleryItems } from "./gallery-items.js";
 
 console.log(galleryItems);
 
-const galleryContainer = document.querySelector(".gallery");
-const galleryCardSet = createGalleryItemsMarkUp(galleryItems);
+const galleryRef = document.querySelector(".gallery");
+const galleryCardSet = createGalleryMarkup(galleryItems);
 
-function createGalleryItemsMarkUp(items) {
+function createGalleryMarkup(items) {
   return items
     .map(
       ({ preview, original, description }) =>
@@ -24,4 +24,6 @@ function createGalleryItemsMarkUp(items) {
     .join("");
 }
 
-galleryContainer.insertAdjacentHTML("beforeend", galleryCardSet);
+galleryRef.insertAdjacentHTML("beforeend", galleryCardSet);
+
+galleryRef.addEventListener("click");
