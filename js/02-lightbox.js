@@ -4,6 +4,8 @@ import { galleryItems } from "./gallery-items.js";
 console.log(galleryItems);
 
 const galleryRef = document.querySelector(".gallery");
+const galleryCardSet = createGalleryMarkup(galleryItems);
+galleryRef.insertAdjacentHTML("beforeend", galleryCardSet);
 
 function createGalleryMarkup(items) {
   return items
@@ -15,3 +17,8 @@ function createGalleryMarkup(items) {
     )
     .join("");
 }
+
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
